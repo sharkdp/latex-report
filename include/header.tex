@@ -1,7 +1,7 @@
 \documentclass[
      a4paper
-    ,14pt
-    ,notitlepage
+    ,fontsize=12pt
+    ,titlepage=false
     ,fleqn
     ,headings=small
     ,twoside
@@ -26,7 +26,10 @@
 %%% Graphics
 \usepackage{graphicx}
 \usepackage{subfig}
-\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[
+     font=small
+    ,labelfont=bf
+]{caption}
 \captionsetup[figure]{name=Fig.}
 
 %%% Hyperref
@@ -42,11 +45,37 @@
 ]{hyperref}
 
 %%% Layout
-\usepackage[inner=2.5cm,outer=2.5cm,top=2cm,bottom=2cm,marginparsep=1cm,marginpar=4.5cm,includeheadfoot]{geometry}
+\usepackage[
+     inner=2.5cm
+    ,outer=2.5cm
+    ,top=2cm
+    ,bottom=2cm
+    ,marginparsep=1cm
+    ,marginpar=4.5cm
+    ,includeheadfoot
+]{geometry}
 
 %%% Typesetting
 % Remove paragraph indentation
 \setlength{\parindent}{0cm}
+
+%%% Fancy header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Delete default header and footer
+\fancyhead{}
+\fancyfoot{}
+% Custom text
+\fancyhead[L]{{\textsc \thetitle}}
+\fancyhead[R]{\thesection}
+\fancyfoot[RO,LE]{\thepage}
+
+%%% Remove TOC headings
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
 
 %%% Custom commands
 \input{latex-report/include/commands}
@@ -54,5 +83,14 @@
 %%% Start main document
 \begin{document}
 
-\maketitle
+\title{\thetitle}
+\author{\theauthor}
+\date{\thedate}
+
+%%% Title section
+{\Huge \textsc \thetitle}\\
+\thispagestyle{empty}
+
+%%% TOC
 \tableofcontents
+\vspace{10mm}
