@@ -13,12 +13,24 @@ if [[ -e main.tex ]]; then
     exit 1
 fi
 
+# Name of the main LaTeX file
 mainfile="${1}.tex"
 
-cp -iv bootstrap/* .
+# Copy all boostrap files
+cp -iv latex-report/bootstrap/* .
+cp -iv latex-report/bootstrap/.gitignore .
 mv main.tex "$mainfile"
 
-mkdir fig
-mkdir .dist
+# Create directories for figures and temporary files
+mkdir -p fig
+mkdir -p .dist
 
-echo "$mainfile" >> .gitignore
+# Add output file to .gitignore
+echo "${1}.pdf" >> .gitignore
+
+# Create git repository and make initial commit
+if [[ ! -e .git ]]; then
+    git init
+    git add .
+    git commit -m "bootstrapped from latex-report"
+fi
