@@ -13,11 +13,7 @@ git clone https://github.com/sharkdp/latex-report.git
 ./latex-report/bootstrap.sh main
 ```
 
-where `main` is your desired name for the root LaTeX file (without ending). The bootstrap script creates initial LaTeX files as well as two directories `fig` for figures and `dist` for LaTeX output files. It also creates a new git repository for the report with an initial `.gitignore` file.
-
-Editing
--------
-The title and author of the report can be modified in `metadata.tex` and the content of your report resides in `main.tex`.
+where `main` is the desired name for the report LaTeX file (without ending). The bootstrap script creates a starting LaTeX file as well as two directories `fig` for figures and `dist` for LaTeX output files. It also creates a new git repository for the report with an initial `.gitignore` file.
 
 Compiling
 ---------
