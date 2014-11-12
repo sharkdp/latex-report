@@ -21,7 +21,7 @@ mainfile="${1}.tex"
 # Copy all boostrap files
 cp -iv latex-report/bootstrap/* .
 cp -iv latex-report/bootstrap/.gitignore .
-mv main.tex "$mainfile"
+mv -iv main.tex "$mainfile"
 
 # Create directories for figures and temporary files
 mkdir -p fig
