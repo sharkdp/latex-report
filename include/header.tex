@@ -1,5 +1,15 @@
-\documentclass[a4paper,14pt,notitlepage,fleqn]{scrartcl}
+\documentclass[
+     a4paper
+    ,14pt
+    ,notitlepage
+    ,fleqn
+    ,headings=small
+    ,twoside
+]{scrartcl}
+
+%%% Fonts, encoding
 \usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 
 %%% Math
 \usepackage{amsmath}
@@ -8,20 +18,34 @@
 \usepackage{xspace}
 \usepackage{bm}
 
+% redefine \\ inside align to add \notag to all equations except the last
+\makeatletter
+\def\Let@{\def\\{\notag\math@cr}}
+\makeatother
+
 %%% Graphics
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage[font=small,labelfont=bf]{caption}
+\captionsetup[figure]{name=Fig.}
 
 %%% Hyperref
+\usepackage{color}
+\definecolor{blue}{rgb}{0.,0.4,0.99}
+
 \usepackage[
      pdfusetitle
     ,colorlinks=true
-    ,citecolor=black
+    ,citecolor=blue
     ,linkcolor=black
     ,pdfborder={0 0 0}
 ]{hyperref}
 
-%%% Geometry
+%%% Layout
+\usepackage[inner=2.5cm,outer=2.5cm,top=2cm,bottom=2cm,marginparsep=1cm,marginpar=4.5cm,includeheadfoot]{geometry}
+
+%%% Typesetting
+% Remove paragraph indentation
 \setlength{\parindent}{0cm}
 
 %%% Custom commands
