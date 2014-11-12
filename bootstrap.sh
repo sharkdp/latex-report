@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [[ $# != 1 ]]; then
     echo "Usage: boostrap.sh <name of main tex file>"
     exit 1
