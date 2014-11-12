@@ -19,16 +19,13 @@ fi
 mainfile="${1}.tex"
 
 # Copy all boostrap files
-cp -iv latex-report/bootstrap/* .
+cp -iv latex-report/bootstrap/main.tex "$mainfile"
+cp -iv latex-report/bootstrap/metadata.tex .
 cp -iv latex-report/bootstrap/.gitignore .
-mv -iv main.tex "$mainfile"
 
-# Create directories for figures and temporary files
+# Create directories for figures and LaTeX output files
 mkdir -p fig
-mkdir -p .dist
-
-# Add output file to .gitignore
-echo "${1}.pdf" >> .gitignore
+mkdir -p dist
 
 # Create git repository and make initial commit
 if [[ ! -e .git ]]; then

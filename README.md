@@ -1,7 +1,7 @@
 latex-report
 ============
 
-A template for simple LaTeX reports.
+A LaTeX template for simple reports.
 
 Quick start
 -----------
@@ -13,7 +13,7 @@ git clone https://github.com/sharkdp/latex-report.git
 ./latex-report/bootstrap.sh main
 ```
 
-where `main` is the name of your desired root LaTeX file. This script will create initial `tex` files, a `fig` and `.dist` directory for figures and latex temporary files. It also creates a git repository with a `.gitignore` file.
+where `main` is the name of your desired root LaTeX file. This script will create initial `tex` files, a `fig` and `dist` directory for figures and LaTeX output files. It also creates a git repository with a `.gitignore` file.
 
 Editing
 -------
@@ -22,10 +22,9 @@ The title and author of the report can be modified in `metadata.tex` and the con
 Compiling with `latexmk`
 ------------------------
 ```sh
-latexmk -output-directory=".dist" -pvc -pdf main.tex
+latexmk -output-directory="dist" -pvc -pdf main.tex
 ```
 where `main.tex` is the name of your root latex file.
-
 
 Updating
 --------
