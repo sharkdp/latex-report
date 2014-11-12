@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $# != 1 ]]; then
-    echo "Usage: boostrap.sh <name of main tex file>"
+    echo "Usage: bootstrap.sh <name of main tex file>"
     exit 1
 fi
 
@@ -18,7 +18,7 @@ fi
 # Name of the main LaTeX file
 mainfile="${1}.tex"
 
-# Copy all boostrap files
+# Copy all bootstrap files
 cp -iv latex-report/bootstrap/main.tex "$mainfile"
 cp -iv latex-report/bootstrap/metadata.tex .
 cp -iv latex-report/bootstrap/.gitignore .
