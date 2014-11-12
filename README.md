@@ -21,9 +21,9 @@ The title and author of the report can be modified in `metadata.tex` and the con
 
 Compiling with `latexmk`
 ------------------------
-``sh
+```sh
 latexmk -output-directory=".dist" -pvc -pdf main.tex
-``
+```
 where `main.tex` is the name of your root latex file.
 
 
