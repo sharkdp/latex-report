@@ -5,29 +5,29 @@
 %%% Math
 \newcommand{\bb}[1]{\left(#1\right)}                                        % (..)
 \newcommand{\bc}[1]{\left[#1\right]}                                        % [..]
-\newcommand{\absv}[1]{\left|#1\right|}                                         % |..|
+\newcommand{\absv}[1]{\left|#1\right|}                                      % |..|
 \newcommand{\absvsq}[1]{\absv{#1}^2}                                        % |..|^2
-\newcommand{\comm}[2]{\left[#1, #2\right]}                                    % [.., ..]
-\newcommand{\bra}[1]{\ensuremath{\left\langle#1\right|}\xspace}              % <...|
-\newcommand{\ket}[1]{\ensuremath{\left|#1\right\rangle}\xspace}              % |...>
+\newcommand{\comm}[2]{\left[#1, #2\right]}                                  % [.., ..]
+\newcommand{\bra}[1]{\ensuremath{\left\langle#1\right|}\xspace}             % <...|
+\newcommand{\ket}[1]{\ensuremath{\left|#1\right\rangle}\xspace}             % |...>
 \newcommand{\braket}[2]{\left\langle#1\middle|#2\right\rangle}              % <...|...>
-\newcommand{\ketbra}[2]{\left|#1\middle\rangle\middle\langle#2\right|}              % |...><...|
-\newcommand{\braketop}[3]{\left\langle#1\middle|#2\middle|#3\right\rangle}    % <...|...|...>
-\newcommand{\smallbraketop}[3]{\langle#1|#2|#3\rangle}                        % <...|...|...> small
-\newcommand{\meanv}[1]{\left\langle#1\right\rangle}                            % <...>
+\newcommand{\ketbra}[2]{\left|#1\middle\rangle\middle\langle#2\right|}      % |...><...|
+\newcommand{\braketop}[3]{\left\langle#1\middle|#2\middle|#3\right\rangle}  % <...|...|...>
+\newcommand{\smallbraketop}[3]{\langle#1|#2|#3\rangle}                      % <...|...|...> small
+\newcommand{\meanv}[1]{\left\langle#1\right\rangle}                         % <...>
 \newcommand{\hastobe}{\stackrel{!}{=}}                                      % !=
-\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}                             % unit
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}                          % unit
 
 %%% Special functions
-\newcommand{\deltaf}[1]{\ensuremath{\operatorname{\delta}\!\bb{#1}}\xspace}        % delta function
-\newcommand{\thetaf}[1]{\ensuremath{\operatorname{\theta}\!\bb{#1}}\xspace}        % theta function
-\newcommand{\expf}[1]{\ensuremath{\exp\bb{#1}}\xspace}                            % exp(...)
-\newcommand{\ef}[1]{\ensuremath{\operatorname{e}^{#1}}\xspace}                    % e^(...)
+\newcommand{\deltaf}[1]{\ensuremath{\operatorname{\delta}\!\bb{#1}}\xspace} % delta function
+\newcommand{\thetaf}[1]{\ensuremath{\operatorname{\theta}\!\bb{#1}}\xspace} % theta function
+\newcommand{\expf}[1]{\ensuremath{\exp\bb{#1}}\xspace}                      % exp(...)
+\newcommand{\ef}[1]{\ensuremath{\operatorname{e}^{#1}}\xspace}              % e^(...)
 
 %%% Bra Ket
-\newcommand{\ketPsi}{\ket{\Psi}}         % |Ψ>
-\newcommand{\ketpsi}{\ket{\psi}}         % |ψ> small
-\newcommand{\ketphi}{\ket{\varphi}}      % |φ>
+\newcommand{\ketPsi}{\ket{\Psi}}         % |Psi>
+\newcommand{\ketpsi}{\ket{\psi}}         % |psi> small
+\newcommand{\ketphi}{\ket{\varphi}}      % |phi>
 \newcommand{\ketup}{\ket{\uparrow}}      % |uparrow>
 \newcommand{\ketdo}{\ket{\downarrow}}    % |downarrow>
 \newcommand{\ketzero}{\ket{0}}           % |0>
@@ -58,34 +58,34 @@
 \newcommand{\laplace}{\operatorname{\nabla^2}}                        % laplace
 
 %%% Integration
-\newcommand{\integralb}[3]{\int\limits_{#1}^{#2} \! \mathrm{d} #3\,}    % integral                    \integral{0}{\infty}{r}
-\newcommand{\integral}[1]{\int \! \mathrm{d} #1\,}                      % integral without limits     \integral{r}
-\newcommand{\integralf}[2]{\int \! \frac{\mathrm{d} #1}{#2}\,}          % integral with a fraction (e.g. int dk/sqrt(2pi))  \integralf{k}{\sqrt{2\pi}}
-\newcommand{\intvol}{\integral{^3r}}                                    % integral over the whole space d^3r
-\newcommand{\intvolp}{\integral{^3r'}}                                  % integral over the whole space d^3r'
-\newcommand{\intvold}{\intvol\!\intvolp}                                % double integral over the whole space d^3r d^3r'
-\newcommand{\intk}{\integral{^3k}}                                      % normalized integral over k space d^3k/(2pi)^3
-\newcommand{\intkp}{\integral{^3k'}}                                    % k'
-\newcommand{\intkn}{\integralf{^3k}{(2\pi)^3}}                          % normalized integral over k space d^3k/(2pi)^3
-\newcommand{\intkpn}{\integralf{^3k'}{(2\pi)^3}}                        % k'
+\newcommand{\integralb}[3]{\int\limits_{#1}^{#2} \! \mathrm{d} #3\,}  % integral                    \integral{0}{\infty}{r}
+\newcommand{\integral}[1]{\int \! \mathrm{d} #1\,}                    % integral without limits     \integral{r}
+\newcommand{\integralf}[2]{\int \! \frac{\mathrm{d} #1}{#2}\,}        % integral with a fraction (e.g. int dk/sqrt(2pi))  \integralf{k}{\sqrt{2\pi}}
+\newcommand{\intvol}{\integral{^3r}}                                  % integral over the whole space d^3r
+\newcommand{\intvolp}{\integral{^3r'}}                                % integral over the whole space d^3r'
+\newcommand{\intvold}{\intvol\!\intvolp}                              % double integral over the whole space d^3r d^3r'
+\newcommand{\intk}{\integral{^3k}}                                    % normalized integral over k space d^3k/(2pi)^3
+\newcommand{\intkp}{\integral{^3k'}}                                  % k'
+\newcommand{\intkn}{\integralf{^3k}{(2\pi)^3}}                        % normalized integral over k space d^3k/(2pi)^3
+\newcommand{\intkpn}{\integralf{^3k'}{(2\pi)^3}}                      % k'
 
 %%% Special symbols
 \newcommand{\hc}{\mathop{\text{h.c.}}}                               % h.c.
-\newcommand{\hamil}{\ensuremath{\operatorname{{\hat{H}}}}\xspace}          % Hamilton operator
+\newcommand{\hamil}{\ensuremath{\operatorname{{\hat{H}}}}\xspace}    % Hamilton operator
 
 %%% Second quantization
-\newcommand{\aop}{\ensuremath{a^{\vphantom\dagger}}\xspace}                % annihilation operator
-\newcommand{\aopi}[1]{\ensuremath{a_{#1}^{\vphantom\dagger}}\xspace}       % annihilation operator
-\newcommand{\aopd}{\ensuremath{a^\dagger}\xspace}                          % creation operator
-\newcommand{\aopdi}[1]{\ensuremath{a_{#1}^\dagger}\xspace}                 % creation operator
+\newcommand{\aop}{\ensuremath{a^{\vphantom\dagger}}\xspace}          % annihilation operator
+\newcommand{\aopi}[1]{\ensuremath{a_{#1}^{\vphantom\dagger}}\xspace} % annihilation operator
+\newcommand{\aopd}{\ensuremath{a^\dagger}\xspace}                    % creation operator
+\newcommand{\aopdi}[1]{\ensuremath{a_{#1}^\dagger}\xspace}           % creation operator
 
-\newcommand{\bop}{\ensuremath{b^{\vphantom\dagger}}\xspace}                % annihilation operator
-\newcommand{\bopi}[1]{\ensuremath{b_{#1}^{\vphantom\dagger}}\xspace}       % annihilation operator
-\newcommand{\bopd}{\ensuremath{b^\dagger}\xspace}                          % creation operator
-\newcommand{\bopdi}[1]{\ensuremath{b_{#1}^\dagger}\xspace}                 % creation operator
+\newcommand{\bop}{\ensuremath{b^{\vphantom\dagger}}\xspace}          % annihilation operator
+\newcommand{\bopi}[1]{\ensuremath{b_{#1}^{\vphantom\dagger}}\xspace} % annihilation operator
+\newcommand{\bopd}{\ensuremath{b^\dagger}\xspace}                    % creation operator
+\newcommand{\bopdi}[1]{\ensuremath{b_{#1}^\dagger}\xspace}           % creation operator
 
-\newcommand{\nop}{\ensuremath{n}\xspace}                                   % number operator
-\newcommand{\nopi}[1]{\ensuremath{n_{#1}}\xspace}                          % number operator
+\newcommand{\nop}{\ensuremath{n}\xspace}                             % number operator
+\newcommand{\nopi}[1]{\ensuremath{n_{#1}}\xspace}                    % number operator
 
 \newcommand{\psiop}{\ensuremath{\operatorname{\hat{\psi}^{\vphantom\dagger}}}\xspace}
 \newcommand{\psiopd}{\ensuremath{\operatorname{\hat{\psi}^\dagger}}\xspace}
