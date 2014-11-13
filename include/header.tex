@@ -47,29 +47,24 @@
 
 %%% Layout
 \usepackage[
-     inner=2.5cm
-    ,outer=2.5cm
+     inner=2.7cm
+    ,outer=2.7cm
     ,top=2cm
     ,bottom=2cm
-    ,marginparsep=1cm
-    ,marginpar=4.5cm
     ,includeheadfoot
 ]{geometry}
 
 %%% Typesetting
+\usepackage{microtype}
 % Remove paragraph indentation
 \setlength{\parindent}{0cm}
 
 %%% Fancy header
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-% Delete default header and footer
-\fancyhead{}
-\fancyfoot{}
-% Custom text
-\fancyhead[L]{{\textsc \thetitle}}
-\fancyhead[R]{\thesection}
-\fancyfoot[RO,LE]{\thepage}
+\lhead{\slshape \leftmark}
+\rhead{\slshape \thepage}
+\cfoot{\thepage}
 
 %%% Remove TOC headings
 \makeatletter
@@ -93,5 +88,9 @@
 \thispagestyle{empty}
 
 %%% TOC
+% Disable microtype protrusion for the TOC
+\microtypesetup{protrusion=false}
 \tableofcontents
+\microtypesetup{protrusion=true}
+
 \vspace{10mm}
