@@ -17,6 +17,7 @@
 \usepackage{upgreek}
 \usepackage{xspace}
 \usepackage{bm}
+\usepackage{dsfont}
 
 % redefine \\ inside align to add \notag to all equations except the last
 \makeatletter
@@ -54,7 +55,8 @@
     ,includeheadfoot
 ]{geometry}
 
-%%% Typesetting
+%%% Layout and typesetting
+\usepackage{booktabs}
 \usepackage{microtype}
 % Remove paragraph indentation
 \setlength{\parindent}{0cm}
@@ -84,7 +86,7 @@
 \date{\thedate}
 
 %%% Title section
-{\Huge \textsc \thetitle}\\
+{\LARGE \textsc \thetitle}\\
 \thispagestyle{empty}
 
 %%% TOC
