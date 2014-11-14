@@ -1,3 +1,6 @@
+% warn about LaTeX 'sins'
+\RequirePackage[l2tabu, orthodox]{nag}
+
 \documentclass[
      a4paper
     ,fontsize=12pt
@@ -22,6 +25,7 @@
 \usepackage{xspace}
 \usepackage{bm}
 \usepackage{dsfont}
+\usepackage{siunitx}
 
 % redefine \\ inside align to add \notag to all equations except the last
 \makeatletter
