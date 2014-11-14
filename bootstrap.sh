@@ -16,6 +16,7 @@ mainfile="${1}.tex"
 # Copy all bootstrap files
 cp -iv latex-report/bootstrap/main.tex "$mainfile"
 cp -iv latex-report/bootstrap/.gitignore .
+cp -iv latex-report/bootstrap/.latexmkrc .
 
 # Create directories for figures and LaTeX output files
 mkdir -p fig
