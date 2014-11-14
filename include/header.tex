@@ -52,6 +52,7 @@
     ,citecolor=blue
     ,linkcolor=blue
     ,pdfborder={0 0 0}
+    ,unicode=true
 ]{hyperref}
 
 %%% Layout and typesetting
@@ -60,12 +61,13 @@
 % Remove paragraph indentation
 \setlength{\parindent}{0cm}
 
-%%% Fancy header
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\lhead{\slshape \leftmark}
-\rhead{\slshape \thepage}
-\cfoot{\thepage}
+%%% Header
+\usepackage[automark,headsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\automark{section}
+\cfoot[\pagemark]{\pagemark}
+\ohead[\headmark]{\textrm{\headmark}}
+\pagestyle{scrheadings}
 
 %%% Remove TOC headings
 \makeatletter
