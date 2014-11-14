@@ -17,11 +17,7 @@ where `main` is the desired name for the report LaTeX file (without ending). The
 
 Compiling
 ---------
-Continuously monitor changes to the main tex-file and all includes by using `latexmk`:
-```sh
-latexmk -output-directory="dist" -pvc -pdf main.tex
-```
-Here, `main.tex` is the name of your root latex file. All output goes to the `dist` directory.
+Continuously monitor changes to the main tex-file and all includes by calling `latexmk`. latex-report comes with a default `.latexmkrc` file.
 
 Updating
 --------
