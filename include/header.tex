@@ -11,6 +11,7 @@
 ]{scrartcl}
 
 %%% latex-report settings
+\usepackage{ifthen}
 \providecommand{\latexReportDirectory}{latex-report}
 \providecommand{\thedate}{\today}
 
@@ -26,6 +27,9 @@
 \usepackage{bm}
 \usepackage{dsfont}
 \usepackage{siunitx}
+
+% Bold vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
 % redefine \\ inside align to add \notag to all equations except the last
 \makeatletter

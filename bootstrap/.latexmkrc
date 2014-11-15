@@ -1,9 +1,10 @@
-$preview_continuous_mode = 1;
-
-$pdf_mode = 1;
+$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
 
 $out_dir = "dist";
 
-$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
+$pdf_mode = 1;
+
+# Always run in continuous mode:
+#$preview_continuous_mode = 1;
 
 # vim: syntax=perl

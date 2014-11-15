@@ -1,93 +1,89 @@
-\newcommand{\qu}[1]{``#1''}
+%%% Size Adaptive Math
+\newcommand{\bb}[1]{\left(#1\right)}                                        %% parantheses
+\newcommand{\bc}[1]{\left[#1\right]}                                        %% brackets
+\newcommand{\absv}[1]{\left|#1\right|}                                      %% absolute value
+\newcommand{\absvsq}[1]{\absv{#1}^2}                                        %% absolute value squared
+\newcommand{\comm}[2]{\left[#1, #2\right]}                                  %% commutator
+\newcommand{\meanv}[1]{\left\langle#1\right\rangle}                         %% mean value
 
-\newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
-
-%%% Math
-\newcommand{\bb}[1]{\left(#1\right)}                                        % (..)
-\newcommand{\bc}[1]{\left[#1\right]}                                        % [..]
-\newcommand{\absv}[1]{\left|#1\right|}                                      % |..|
-\newcommand{\absvsq}[1]{\absv{#1}^2}                                        % |..|^2
-\newcommand{\comm}[2]{\left[#1, #2\right]}                                  % [.., ..]
-\newcommand{\bra}[1]{\ensuremath{\left\langle#1\right|}\xspace}             % <...|
-\newcommand{\ket}[1]{\ensuremath{\left|#1\right\rangle}\xspace}             % |...>
-\newcommand{\braket}[2]{\left\langle#1\middle|#2\right\rangle}              % <...|...>
-\newcommand{\ketbra}[2]{\left|#1\middle\rangle\middle\langle#2\right|}      % |...><...|
-\newcommand{\braketop}[3]{\left\langle#1\middle|#2\middle|#3\right\rangle}  % <...|...|...>
-\newcommand{\smallbraketop}[3]{\langle#1|#2|#3\rangle}                      % <...|...|...> small
-\newcommand{\meanv}[1]{\left\langle#1\right\rangle}                         % <...>
-\newcommand{\hastobe}{\stackrel{!}{=}}                                      % !=
-\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}                          % unit
+%%% Bra Ket Notation
+\newcommand{\bra}[1]{\ensuremath{\left\langle#1\right|}\xspace}             %% bra
+\newcommand{\ket}[1]{\ensuremath{\left|#1\right\rangle}\xspace}             %% ket
+\newcommand{\braket}[2]{\left\langle#1\middle|#2\right\rangle}              %% scalar product
+\newcommand{\ketbra}[2]{\left|#1\middle\rangle\middle\langle#2\right|}      %% ket-bra operator
+\newcommand{\braketop}[3]{\left\langle#1\middle|#2\middle|#3\right\rangle}  %% matrix element
+\newcommand{\smallbraketop}[3]{\langle#1|#2|#3\rangle}                      %% small matrix element
 
 %%% Special functions
-\newcommand{\deltaf}[1]{\ensuremath{\operatorname{\delta}\!\bb{#1}}\xspace} % delta function
-\newcommand{\thetaf}[1]{\ensuremath{\operatorname{\theta}\!\bb{#1}}\xspace} % theta function
-\newcommand{\expf}[1]{\ensuremath{\exp\bb{#1}}\xspace}                      % exp(...)
-\newcommand{\ef}[1]{\ensuremath{\operatorname{e}^{#1}}\xspace}              % e^(...)
+\newcommand{\deltaf}[1]{\ensuremath{\operatorname{\delta}\!\bb{#1}}\xspace} %% delta function
+\newcommand{\thetaf}[1]{\ensuremath{\operatorname{\theta}\!\bb{#1}}\xspace} %% theta function
+\newcommand{\expf}[1]{\ensuremath{\operatorname{\text{exp}}\!\bb{#1}}\xspace}                      %% exponential function
+\newcommand{\ef}[1]{\ensuremath{\operatorname{e}^{#1}}\xspace}              %% exponential function
 
-%%% Bra Ket
-\newcommand{\ketPsi}{\ket{\Psi}}         % |Psi>
-\newcommand{\ketpsi}{\ket{\psi}}         % |psi> small
-\newcommand{\ketphi}{\ket{\varphi}}      % |phi>
-\newcommand{\ketup}{\ket{\uparrow}}      % |uparrow>
-\newcommand{\ketdo}{\ket{\downarrow}}    % |downarrow>
-\newcommand{\ketzero}{\ket{0}}           % |0>
-\newcommand{\ketone}{\ket{1}}            % |1>
-\newcommand{\ketg}{\ket{g}}              % |g>
-\newcommand{\kete}{\ket{e}}              % |e>
-\newcommand{\vac}{\ket{\text{vac}}}      % |vac>
+%%% Named states
+\newcommand{\ketPsi}{\ket{\Psi}}
+\newcommand{\ketpsi}{\ket{\psi}}
+\newcommand{\ketphi}{\ket{\varphi}}
+\newcommand{\ketup}{\ket{\uparrow}}      %% spin up
+\newcommand{\ketdo}{\ket{\downarrow}}    %% spin down
+\newcommand{\ketzero}{\ket{0}}
+\newcommand{\ketone}{\ket{1}}
+\newcommand{\ketg}{\ket{g}}              %% ground state
+\newcommand{\kete}{\ket{e}}              %% excited state
+\newcommand{\vac}{\ket{\text{vac}}}      %% vacuum
 
-%%% Bold vectors
-\renewcommand{\vec}[1]{\mathbf{#1}}               % vector
-\newcommand{\vecr}{\ensuremath{\vec{r}}\xspace}   % vector r
-\newcommand{\vecrone}{\vec{r_1}}                  % vector r_1
-\newcommand{\vecrtwo}{\vec{r_2}}                  % vector r_2
-\newcommand{\vecrn}{\vec{r_N}}                    % vector r_N
-\newcommand{\vecri}{\vec{r_i}}                    % vector r_i
-\newcommand{\vecrj}{\vec{r_j}}                    % vector r_j
-\newcommand{\vecx}{\vec{x}}                       % vector x
-\newcommand{\vecy}{\vec{y}}                       % vector y
-\newcommand{\vecxi}{\vec{x_i}}                    % vector x_i
-\newcommand{\vecxj}{\vec{x_j}}                    % vector x_j
-\newcommand{\vecmu}{\vec{\mu}}                    % vector mu
-\newcommand{\veck}{\vec{k}}                       % vector k
-\newcommand{\vecq}{\vec{q}}                       % vector q
-\newcommand{\vecp}{\vec{p}}                       % vector p
+%%% Vectors
+\newcommand{\vecr}{\ensuremath{\vec{r}}\xspace}
+\newcommand{\vecrone}{\vec{r_1}}
+\newcommand{\vecrtwo}{\vec{r_2}}
+\newcommand{\vecrn}{\vec{r_N}}
+\newcommand{\vecri}{\vec{r_i}}
+\newcommand{\vecrj}{\vec{r_j}}
+\newcommand{\vecx}{\vec{x}}
+\newcommand{\vecy}{\vec{y}}
+\newcommand{\vecz}{\vec{z}}
+\newcommand{\vecxi}{\vec{x_i}}
+\newcommand{\vecxj}{\vec{x_j}}
+\newcommand{\veck}{\vec{k}}
+\newcommand{\vecq}{\vec{q}}
+\newcommand{\vecp}{\vec{p}}
 
 %%% Differentiation
-\newcommand{\partiald}[1]{\frac{\partial}{\partial #1}}               % d/(d..)
-\newcommand{\laplace}{\operatorname{\nabla^2}}                        % laplace
+\newcommand{\partiald}[1]{\frac{\partial}{\partial #1}}               %% partial differentiation
+\newcommand{\laplace}{\operatorname{\nabla^2}}                        %% laplace operator
 
 %%% Integration
-\newcommand{\integralb}[3]{\int\limits_{#1}^{#2} \! \mathrm{d} #3\,}  % integral                    \integral{0}{\infty}{r}
-\newcommand{\integral}[1]{\int \! \mathrm{d} #1\,}                    % integral without limits     \integral{r}
-\newcommand{\integralf}[2]{\int \! \frac{\mathrm{d} #1}{#2}\,}        % integral with a fraction (e.g. int dk/sqrt(2pi))  \integralf{k}{\sqrt{2\pi}}
-\newcommand{\intvol}{\integral{^3r}}                                  % integral over the whole space d^3r
-\newcommand{\intvolp}{\integral{^3r'}}                                % integral over the whole space d^3r'
-\newcommand{\intvold}{\intvol\!\intvolp}                              % double integral over the whole space d^3r d^3r'
-\newcommand{\intk}{\integral{^3k}}                                    % normalized integral over k space d^3k/(2pi)^3
-\newcommand{\intkp}{\integral{^3k'}}                                  % k'
-\newcommand{\intkn}{\integralf{^3k}{(2\pi)^3}}                        % normalized integral over k space d^3k/(2pi)^3
-\newcommand{\intkpn}{\integralf{^3k'}{(2\pi)^3}}                      % k'
+\newcommand{\integral}[1]{\int \! \mathrm{d} #1\,}                    %% integral
+\newcommand{\integralb}[3]{\int\limits_{#1}^{#2} \! \mathrm{d} #3\,}  %% integral with boundaries
+\newcommand{\integralf}[2]{\int \! \frac{\mathrm{d} #1}{#2}\,}        %% integral with fraction
+\newcommand{\intvol}{\integral{^3r}}                                  %% integral over r space
+\newcommand{\intvolp}{\integral{^3r'}}                                %% integral over r' space
+\newcommand{\intvold}{\intvol\!\intvolp}                              %% double integral over space
+\newcommand{\intk}{\integral{^3k}}                                    %% integral over k space
+\newcommand{\intkp}{\integral{^3k'}}                                  %% integral over k' space
+\newcommand{\intkn}{\integralf{^3k}{(2\pi)^3}}                        %% normalized integral over k space
+\newcommand{\intkpn}{\integralf{^3k'}{(2\pi)^3}}                      %% normalized integral over k' space
 
 %%% Special symbols
-\newcommand{\hc}{\mathop{\text{h.c.}}}                               % h.c.
-\newcommand{\hamil}{\ensuremath{\operatorname{{\hat{H}}}}\xspace}    % Hamilton operator
+\newcommand{\hc}{\mathop{\text{h.c.}}}                               %% hermitian conjugate
+\newcommand{\hamil}{\ensuremath{\operatorname{{\hat{H}}}}\xspace}    %% Hamilton operator
+\newcommand{\hastobe}{\stackrel{!}{=}}                                      %% has to be
 
 %%% Second quantization
-\newcommand{\aop}{\ensuremath{a^{\vphantom\dagger}}\xspace}          % annihilation operator
-\newcommand{\aopi}[1]{\ensuremath{a_{#1}^{\vphantom\dagger}}\xspace} % annihilation operator
-\newcommand{\aopd}{\ensuremath{a^\dagger}\xspace}                    % creation operator
-\newcommand{\aopdi}[1]{\ensuremath{a_{#1}^\dagger}\xspace}           % creation operator
+\newcommand{\aop}{\ensuremath{a^{\vphantom\dagger}}\xspace}          %% annihilation operator
+\newcommand{\aopi}[1]{\ensuremath{a_{#1}^{\vphantom\dagger}}\xspace} %% annihilation operator, indexed
+\newcommand{\aopd}{\ensuremath{a^\dagger}\xspace}                    %% creation operator
+\newcommand{\aopdi}[1]{\ensuremath{a_{#1}^\dagger}\xspace}           %% creation operator, indexed
+%
+\newcommand{\bop}{\ensuremath{b^{\vphantom\dagger}}\xspace}          %% annihilation operator
+\newcommand{\bopi}[1]{\ensuremath{b_{#1}^{\vphantom\dagger}}\xspace} %% annihilation operator, indexed
+\newcommand{\bopd}{\ensuremath{b^\dagger}\xspace}                    %% creation operator
+\newcommand{\bopdi}[1]{\ensuremath{b_{#1}^\dagger}\xspace}           %% creation operator, indexed
+%
+\newcommand{\nop}{\ensuremath{n}\xspace}                             %% number operator
+\newcommand{\nopi}[1]{\ensuremath{n_{#1}}\xspace}                    %% number operator, indexed
 
-\newcommand{\bop}{\ensuremath{b^{\vphantom\dagger}}\xspace}          % annihilation operator
-\newcommand{\bopi}[1]{\ensuremath{b_{#1}^{\vphantom\dagger}}\xspace} % annihilation operator
-\newcommand{\bopd}{\ensuremath{b^\dagger}\xspace}                    % creation operator
-\newcommand{\bopdi}[1]{\ensuremath{b_{#1}^\dagger}\xspace}           % creation operator
-
-\newcommand{\nop}{\ensuremath{n}\xspace}                             % number operator
-\newcommand{\nopi}[1]{\ensuremath{n_{#1}}\xspace}                    % number operator
-
-\newcommand{\psiop}{\ensuremath{\operatorname{\hat{\psi}^{\vphantom\dagger}}}\xspace}
+\newcommand{\psiop}{\ensuremath{\operatorname{\hat{\psi}^{\vphantom\dagger}}}\xspace} %% field operator
 \newcommand{\psiopd}{\ensuremath{\operatorname{\hat{\psi}^\dagger}}\xspace}
 
 \newcommand{\PsiOp}{\ensuremath{\operatorname{\hat{\Psi}}}\xspace}
@@ -99,14 +95,12 @@
 \newcommand{\Dz}{\Delta z}
 \newcommand{\Dt}{\Delta t}
 
-% \igopt[options]{file name}
-\newcommand{\igopt}[2]{\includegraphics[#1]{#2}}
+%%% Figures
+\newcommand{\igopt}[2]{\includegraphics[#1]{#2}} %%! {options}{file name}
 
-% \ig[width in units of \textwidth]{file name}
-\newcommand{\ig}[2]{\igopt{width=#1\columnwidth}{#2}}
+\newcommand{\ig}[2]{\igopt{width=#1\columnwidth}{#2}} %%! \ig{width in units of \textwidth}{file name}
 
-% \figopt[width]{file name}{caption}{placement: h, t, ht, ..}
-\newcommand{\figopt}[4]{
+\newcommand{\figopt}[4]{ %%! \figopt{width}{file name}{caption}{placement: h, t, ht, ..}
     \begin{figure}[#4]
         \centering
         \ig{#1}{#2}
@@ -115,13 +109,11 @@
     \end{figure}
 }
 
-% \fig{width}{file name}{caption}
-\newcommand{\fig}[3]{
+\newcommand{\fig}[3]{ %%! \fig{width}{file name}{caption}
     \figopt{#1}{#2}{#3}{ht}
 }
 
-% \doublefigopt{width 1}{file name 1}{caption 1}{width 2}{file name 2}{caption 2}{main caption}{placement}
-\newcommand{\doublefigopt}[8]{
+\newcommand{\doublefigopt}[8]{ %%! \doublefigopt{width 1}{file name 1}{caption 1}{width 2}{file name 2}{caption 2}{main caption}{placement}
     \begin{figure}[#8]
         \centering
         \subfloat[#3]{
@@ -137,5 +129,6 @@
     \end{figure}
 }
 
-% \doublefig{width 1}{file name 1}{caption 1}{width 2}{file name 2}{caption 2}{main caption}
-\newcommand{\doublefig}[7]{\doublefigopt{#1}{#2}{#3}{#4}{#5}{#6}{#7}{ht}}
+\newcommand{\doublefig}[7]{\doublefigopt{#1}{#2}{#3}{#4}{#5}{#6}{#7}{ht}} %%! \doublefig{width 1}{file name 1}{caption 1}{width 2}{file name 2}{caption 2}{main caption}
+
+\newcommand{\figref}[1]{Fig.~\ref{fig:#1}} %%! reference to figure
