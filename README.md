@@ -17,7 +17,7 @@ where `main` is the desired name for the report LaTeX file (without ending). The
 
 Custom commands
 ---------------
-An overview of the prefefined commands can be found in the [command cheatsheet](https://github.com/sharkdp/latex-report/raw/master/doc/cheatsheet.pdf).
+An overview of the predefined commands can be found in the [command cheatsheet](https://github.com/sharkdp/latex-report/raw/master/doc/cheatsheet.pdf).
 
 Compiling
 ---------
