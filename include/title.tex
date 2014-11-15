@@ -11,9 +11,11 @@
 \thispagestyle{empty}
 
 %%% TOC
-% Disable microtype protrusion for the TOC
-\microtypesetup{protrusion=false}
-\tableofcontents
-\microtypesetup{protrusion=true}
+\ifthenelse{\isundefined{\notoc}}{
+    % Disable microtype protrusion for the TOC
+    \microtypesetup{protrusion=false}
+    \tableofcontents
+    \microtypesetup{protrusion=true}
+    \vspace{10mm}
+}{}
 
-\vspace{10mm}
