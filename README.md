@@ -22,13 +22,13 @@ An overview of the predefined commands can be found in the [command cheatsheet](
 Compiling
 ---------
 To compile the report, (install and) call
-``sh
+```sh
 latexmk
-``
+```
 The configuration file for latexmk is called `.latexmkrc`. To continuously monitor changes to the main tex-file and all includes, call
-``sh
+```sh
 latexmk -pvc
-``
+```
 
 Updating
 --------
