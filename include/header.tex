@@ -10,9 +10,6 @@
 ]{scrartcl}
 
 %%% latex-report settings
-\providecommand{\lrDirectory}{latex-report}
-\providecommand{\lrDate}{\today}
-
 \usepackage{etoolbox}
 \providetoggle{lrHideToc}
 \providetoggle{lrHideTitle}
@@ -20,7 +17,14 @@
 
 % Run this code only after the user had the chance to change the toggles
 \AtEndPreamble{
-    %%% Small headings?
+    % In case the user did not specify:
+    \providecommand{\lrDate}{\today}
+    \providecommand{\lrDirectory}{latex-report}
+
+    % Load custom commands
+    \input{\lrDirectory/include/commands}
+
+    % Small section headings?
     \iftoggle{lrSmallHeadings}{
         \KOMAoptions{headings=small}
     }{}
@@ -87,9 +91,6 @@
     ,pdfborder={0 0 0}
     ,unicode=true
 ]{hyperref}
-
-%%% Custom commands
-\input{\lrDirectory/include/commands}
 
 %%% Run this code after \begin{document}
 \AtBeginDocument{
