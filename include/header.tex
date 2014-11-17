@@ -7,13 +7,24 @@
     ,titlepage=false
     ,fleqn
     ,oneside
-    ,headings=small
 ]{scrartcl}
 
 %%% latex-report settings
-\usepackage{ifthen}
-\providecommand{\latexReportDirectory}{latex-report}
-\providecommand{\thedate}{\today}
+\providecommand{\lrDirectory}{latex-report}
+\providecommand{\lrDate}{\today}
+
+\usepackage{etoolbox}
+\providetoggle{lrHideToc}
+\providetoggle{lrHideTitle}
+\providetoggle{lrSmallHeadings}
+
+% Run this code only after the user had the chance to change the toggles
+\AtEndPreamble{
+    %%% Small headings?
+    \iftoggle{lrSmallHeadings}{
+        \KOMAoptions{headings=small}
+    }{}
+}
 
 %%% Fonts, encoding
 \usepackage[utf8]{inputenc}
@@ -46,6 +57,24 @@
 \captionsetup[figure]{name=Fig.}
 \graphicspath{{fig/}}
 
+%%% Layout and typesetting
+\usepackage{booktabs}
+\usepackage{microtype}
+
+%%% Header
+\usepackage[automark,headsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\cfoot[\pagemark]{\pagemark}
+\ohead[\lrTitle]{\textrm{\lrTitle}}
+\pagestyle{scrheadings}
+
+%%% Remove TOC headings
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
+
 %%% Hyperref
 \usepackage{color}
 \definecolor{blue}{rgb}{0.,0.4,1}
@@ -59,24 +88,27 @@
     ,unicode=true
 ]{hyperref}
 
-%%% Layout and typesetting
-\usepackage{booktabs}
-\usepackage{microtype}
-
-%%% Header
-\usepackage[automark,headsepline]{scrlayer-scrpage}
-\clearpairofpagestyles
-\automark{section}
-\cfoot[\pagemark]{\pagemark}
-\ohead[\headmark]{\textrm{\headmark}}
-\pagestyle{scrheadings}
-
-%%% Remove TOC headings
-\makeatletter
-\renewcommand\tableofcontents{%
-    \@starttoc{toc}%
-}
-\makeatother
-
 %%% Custom commands
-\input{\latexReportDirectory/include/commands}
+\input{\lrDirectory/include/commands}
+
+%%% Run this code after \begin{document}
+\AtBeginDocument{
+    \title{\lrTitle}
+    \author{\lrAuthor}
+    \date{\lrDate}
+
+    %%% Title section
+    \nottoggle{lrHideTitle}{
+        \noindent{\LARGE \textsf{\textbf{\lrTitle}}}\\
+        \thispagestyle{empty}
+    }{}
+
+    %%% TOC
+    \nottoggle{lrHideToc}{
+        % Disable microtype protrusion for the TOC
+        \microtypesetup{protrusion=false}
+        \tableofcontents
+        \microtypesetup{protrusion=true}
+        \vspace{8mm}
+    }{}
+}

@@ -1,16 +1,19 @@
-% meta data
-\newcommand{\thetitle}{Report Title}
-\newcommand{\theauthor}{David Peter}
-\newcommand{\thedate}{\today}
-
 \input{latex-report/include/header}
 
-% custom packages
+%%% include custom packages here
 % \usepackage{..}
 
-\input{latex-report/include/title}
+%%% meta data and settings
+\newcommand{\lrTitle}{Report Title}
+\newcommand{\lrAuthor}{Report Author}
+\newcommand{\lrDate}{\today}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \toggletrue{lrHideToc}
+% \toggletrue{lrHideTitle}
+% \toggletrue{lrSmallHeadings}
+
+
+\begin{document}
 
 \section{First section}
 Some text and an important definition
@@ -22,6 +25,4 @@ where $g(s)=a \bb{1 + \ef{i s}}$.
 \subsection{First subsection}
 And some more text.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\input{latex-report/include/footer}
+\end{document}
