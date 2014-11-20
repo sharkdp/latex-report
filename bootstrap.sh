@@ -46,7 +46,7 @@ mkdir -p fig
 mkdir -p dist
 
 # If pplatex is installed, use it:
-if ppdflatex -V > /dev/null; then
+if ppdflatex -V > /dev/null 2>&1; then
     log INFO "ppdflatex is installed, using instead of pdflatex"
     sed -i -e "s/'pdflatex/'ppdflatex/g" .latexmkrc
 else
