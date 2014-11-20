@@ -5,15 +5,15 @@ import re
 STD_ARGS = ["x", "y", "z"]
 
 def render(filename):
-    print("\\newcommand{\\latexReportDirectory}{..}")
-    print("\\newcommand{\\thetitle}{Custom LaTeX Commands}")
-    print("\\newcommand{\\theauthor}{David Peter}")
-    print("\\newcommand{\\notoc}{yes}")
+    print("\\newcommand{\\lrDirectory}{..}")
+    print("\\newcommand{\\lrTitle}{Custom LaTeX Commands}")
+    print("\\newcommand{\\lrAuthor}{David Peter}")
     print("\\input{../include/header.tex}")
+    print("\\toggletrue{lrHideToc}")
     print("\\usepackage{longtable}")
     print("\\usepackage[left=2cm,right=2cm]{geometry}")
-    print("\\input{../include/title.tex}")
 
+    print("\\begin{document}")
     print("\\renewcommand*{\\arraystretch}{1.4}")
     print("\\begin{longtable}[l]{llll}")
 
@@ -68,7 +68,7 @@ def render(filename):
                         )
 
     print("\\end{longtable}")
-    print("\\input{../include/footer.tex}")
+    print("\\end{document}")
 
 
 if __name__ == "__main__":
