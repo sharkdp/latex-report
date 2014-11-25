@@ -30,7 +30,7 @@ def render(filename):
                 print("\\multicolumn{4}{l}{{\\Large \\textsc{" + section + "}}\\vspace{2mm}} \\\\")
                 nrsection += 1
             else:
-                res = re.match('\\\\newcommand\{\\\\([^\}]+)\}(\[[0-9]+\])?[^%]*(%%!? ?.*)?$', l)
+                res = re.match('\\\\(?:re)?newcommand\{\\\\([^\}]+)\}(\[[0-9]+\])?[^%]*(%%!? ?.*)?$', l)
                 if res:
                     command = res.group(1)
                     gargs = res.group(2)
