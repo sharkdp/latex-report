@@ -46,7 +46,7 @@
 % Bold vectors
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
-% redefine \\ inside align to add \notag to all equations except the last
+% redefine \\ inside the align-environment to add \notag to all equations except the last
 \makeatletter
 \def\Let@{\def\\{\notag\math@cr}}
 \makeatother
@@ -66,11 +66,15 @@
 \usepackage{microtype}
 
 %%% Header
-\usepackage[automark,headsepline]{scrlayer-scrpage}
+\usepackage[iso]{datetime}
+\usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
+\addtokomafont{headsepline}{\color{gray}}
+\setkomafont{pagehead}{\color{gray}\normalfont\sffamily}
+
 \clearpairofpagestyles
+\ihead[\lrTitle]{\lrTitle}
+\ohead[\lrAuthor]{\lrAuthor, \lrDate}
 \cfoot[\pagemark]{\pagemark}
-\ohead[\lrTitle]{\textrm{\lrTitle}}
-\pagestyle{scrheadings}
 
 %%% Remove TOC headings
 \makeatletter
@@ -82,6 +86,7 @@
 %%% Hyperref
 \usepackage{color}
 \definecolor{blue}{rgb}{0.,0.4,1}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
 
 \usepackage[
      pdfusetitle
