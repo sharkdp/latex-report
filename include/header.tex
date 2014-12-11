@@ -31,25 +31,18 @@
     }{}
 
     %%% Fonts
-    \setmainfont[
-        Extension      = .otf,
-        UprightFont    = *-regular,
-        BoldFont       = *-bold,
-        ItalicFont     = *-italic,
-        BoldItalicFont = *-bolditalic]{texgyrepagella}
-
     \setsansfont[
         Path           = \lrDirectory/fonts/Lato/,
         Scale          = .95,
         Extension      = .ttf,
         UprightFont    = *-Regular,
-        BoldFont       = *-Black,
+        BoldFont       = *-Bold,
         ItalicFont     = *-Italic,
         BoldItalicFont = *-BoldItalic ]{Lato}
 
     \setmonofont[
         Path           = \lrDirectory/fonts/SourceCodePro/,
-        Scale          = .9,
+        Scale          = .87,
         Extension      = .ttf,
         UprightFont    = *-Regular,
         BoldFont       = *-Black ]{SourceCodePro}
@@ -72,7 +65,7 @@
 %%% Fonts, encoding
 \usepackage[log-declarations=false]{xparse} % load explicitely to quiet warnings
 \usepackage[quiet]{fontspec}
-\usepackage[sc,osf]{mathpazo}
+\usepackage{lmodern}
 
 %%% Math, symbols, units
 \usepackage{amsmath}
