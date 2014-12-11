@@ -38,7 +38,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{courier}
 
-%%% Math
+%%% Math, symbols, units
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{upgreek}
@@ -50,7 +50,7 @@
 % Bold vectors
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
-% redefine \\ inside the align-environment to add \notag to all equations except the last
+% redefine \\ inside the 'align'-environment to add \notag to all equations except the last
 \makeatletter
 \def\Let@{\def\\{\notag\math@cr}}
 \makeatother
@@ -62,18 +62,23 @@
      font=small
     ,labelfont=bf
 ]{caption}
-\captionsetup[figure]{name=Fig.}
+\captionsetup*[figure]{name=Fig.}
 \graphicspath{{fig/}}
 
-%%% Layout and typesetting
+%%% Layout, typesetting, formatting
 \usepackage{booktabs}
 \usepackage{microtype}
-
-%%% Header
 \usepackage[iso]{datetime}
+
+%%% Colors
+\usepackage{xcolor}
+\definecolor{link}{rgb}{0.,0.4,1}
+\definecolor{header}{gray}{0.15}
+
+%%% Header, footer
 \usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
-\addtokomafont{headsepline}{\color{gray}}
-\setkomafont{pagehead}{\color{gray}\normalfont\sffamily}
+\addtokomafont{headsepline}{\color{header}}
+\setkomafont{pagehead}{\color{header}\normalfont\sffamily}
 
 \clearpairofpagestyles
 \ihead[\lrTitle]{\lrTitle}
@@ -88,15 +93,11 @@
 \makeatother
 
 %%% Hyperref
-\usepackage{color}
-\definecolor{blue}{rgb}{0.,0.4,1}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-
 \usepackage[
      pdfusetitle
     ,colorlinks=true
-    ,citecolor=blue
-    ,linkcolor=blue
+    ,citecolor=link
+    ,linkcolor=link
     ,pdfborder={0 0 0}
     ,unicode=true
 ]{hyperref}
