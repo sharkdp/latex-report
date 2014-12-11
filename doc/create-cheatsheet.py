@@ -4,9 +4,10 @@ import re
 
 STD_ARGS = ["x", "y", "z"]
 
+
 def render(filename):
     print("\\newcommand{\\lrDirectory}{..}")
-    print("\\newcommand{\\lrTitle}{Custom LaTeX Commands}")
+    print("\\newcommand{\\lrTitle}{Custom \\TeX~commands}")
     print("\\newcommand{\\lrAuthor}{David Peter}")
     print("\\input{../include/header.tex}")
     print("\\toggletrue{lrHideToc}")
@@ -27,7 +28,7 @@ def render(filename):
                 section = res.group(1)
                 if nrsection > 1:
                     print("\\multicolumn{4}{l}{} \\\\")
-                print("\\multicolumn{4}{l}{{\\Large \\textsc{" + section + "}}\\vspace{2mm}} \\\\")
+                print("\\multicolumn{4}{l}{{\\large \\textsf{" + section + "}}\\vspace{2mm}} \\\\")
                 nrsection += 1
             else:
                 res = re.match('\\\\(?:re)?newcommand\{\\\\([^\}]+)\}(\[[0-9]+\])?[^%]*(%%!? ?.*)?$', l)
@@ -49,7 +50,7 @@ def render(filename):
                             dargs = "".join(list(map(lambda s: "{" + s + "}", STD_ARGS[:nargs])))
 
                     output = "$\\" + command + dargs + "$"
-                    if doc == None:
+                    if doc is None:
                         doc = ""
                     else:
                         if doc.startswith('%%!'):

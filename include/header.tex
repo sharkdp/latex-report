@@ -14,6 +14,7 @@
 \providetoggle{lrHideToc}
 \providetoggle{lrHideTitle}
 \providetoggle{lrSmallHeadings}
+\providetoggle{lrHeaderDate}
 
 % Run this code only after the user had the chance to change the toggles
 \AtEndPreamble{
@@ -28,11 +29,35 @@
     \iftoggle{lrSmallHeadings}{
         \KOMAoptions{headings=small}
     }{}
+
+    \setmainfont[
+        Extension      = .otf,
+        UprightFont    = *-regular,
+        BoldFont       = *-bold,
+        ItalicFont     = *-italic,
+        BoldItalicFont = *-bolditalic]{texgyrepagella}
+
+    \setsansfont[
+        Path           = \lrDirectory/fonts/Lato/,
+        Scale          = .95,
+        Extension      = .ttf,
+        UprightFont    = *-Regular,
+        BoldFont       = *-Black,
+        ItalicFont     = *-Italic,
+        BoldItalicFont = *-BoldItalic ]{Lato}
+
+    \setmonofont[
+        Path           = \lrDirectory/fonts/SourceCodePro/,
+        Scale          = .9,
+        Extension      = .ttf,
+        UprightFont    = *-Regular,
+        BoldFont       = *-Black ]{SourceCodePro}
 }
 
 %%% Fonts, encoding
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage[log-declarations=false]{xparse} % load explicitely to quiet warnings
+\usepackage[quiet]{fontspec}
+\usepackage[sc,osf]{mathpazo}
 
 %%% Math, symbols, units
 \usepackage{amsmath}
@@ -74,11 +99,15 @@
 %%% Header, footer
 \usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
 \addtokomafont{headsepline}{\color{header}}
-\setkomafont{pagehead}{\color{header}\normalfont\sffamily}
+\setkomafont{pagehead}{\color{header}}
 
 \clearpairofpagestyles
-\ihead[\lrTitle]{\lrTitle}
-\ohead[\lrAuthor]{\lrAuthor, \lrDate}
+\iftoggle{lrHeaderDate}{
+    \ihead[\lrTitle]{\lrTitle}
+    \ohead[\lrAuthor]{\lrAuthor, \lrDate}
+}{
+    \ohead[\lrTitle]{\lrTitle}
+}
 \cfoot[\pagemark]{\pagemark}
 
 %%% Remove TOC headings

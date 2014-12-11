@@ -1,4 +1,4 @@
-$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
+$pdflatex = 'xelatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
 
 $out_dir = "dist";
 
