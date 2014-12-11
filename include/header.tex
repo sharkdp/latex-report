@@ -30,6 +30,7 @@
         \KOMAoptions{headings=small}
     }{}
 
+    %%% Fonts
     \setmainfont[
         Extension      = .otf,
         UprightFont    = *-regular,
@@ -52,6 +53,20 @@
         Extension      = .ttf,
         UprightFont    = *-Regular,
         BoldFont       = *-Black ]{SourceCodePro}
+
+    %%% Header, footer
+    \usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
+    \addtokomafont{headsepline}{\color{header}}
+    \setkomafont{pagehead}{\color{header}}
+
+    \clearpairofpagestyles
+    \iftoggle{lrHeaderDate}{
+        \ihead[\lrTitle]{\lrTitle}
+        \ohead[\lrAuthor]{\lrAuthor, \lrDate}
+    }{
+        \ohead[\lrTitle]{\lrTitle}
+    }
+    \cfoot[\pagemark]{\pagemark}
 }
 
 %%% Fonts, encoding
@@ -95,20 +110,6 @@
 \usepackage{xcolor}
 \definecolor{link}{rgb}{0.,0.4,1}
 \definecolor{header}{gray}{0.15}
-
-%%% Header, footer
-\usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
-\addtokomafont{headsepline}{\color{header}}
-\setkomafont{pagehead}{\color{header}}
-
-\clearpairofpagestyles
-\iftoggle{lrHeaderDate}{
-    \ihead[\lrTitle]{\lrTitle}
-    \ohead[\lrAuthor]{\lrAuthor, \lrDate}
-}{
-    \ohead[\lrTitle]{\lrTitle}
-}
-\cfoot[\pagemark]{\pagemark}
 
 %%% Remove TOC headings
 \makeatletter
