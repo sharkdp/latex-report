@@ -14,6 +14,7 @@
 \providetoggle{lrHideToc}
 \providetoggle{lrHideTitle}
 \providetoggle{lrSmallHeadings}
+\providetoggle{lrHeaderDate}
 
 % Run this code only after the user had the chance to change the toggles
 \AtEndPreamble{
@@ -28,11 +29,26 @@
     \iftoggle{lrSmallHeadings}{
         \KOMAoptions{headings=small}
     }{}
+
+    %%% Header, footer
+    \usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
+    \addtokomafont{headsepline}{\color{header}}
+    \setkomafont{pagehead}{\color{header}\normalfont\sffamily}
+
+    \clearpairofpagestyles
+    \iftoggle{lrHeaderDate}{
+        \ihead[\lrTitle]{\lrTitle}
+        \ohead[\lrAuthor]{\lrAuthor, \lrDate}
+    }{
+        \ohead[\lrTitle]{\lrTitle}
+    }
+    \cfoot[\pagemark]{\pagemark}
 }
 
 %%% Fonts, encoding
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage[defaultsans]{lato}
 
 %%% Math, symbols, units
 \usepackage{amsmath}
@@ -70,16 +86,6 @@
 \usepackage{xcolor}
 \definecolor{link}{rgb}{0.,0.4,1}
 \definecolor{header}{gray}{0.15}
-
-%%% Header, footer
-\usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
-\addtokomafont{headsepline}{\color{header}}
-\setkomafont{pagehead}{\color{header}\normalfont\sffamily}
-
-\clearpairofpagestyles
-\ihead[\lrTitle]{\lrTitle}
-\ohead[\lrAuthor]{\lrAuthor, \lrDate}
-\cfoot[\pagemark]{\pagemark}
 
 %%% Remove TOC headings
 \makeatletter
