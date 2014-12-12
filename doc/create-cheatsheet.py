@@ -11,12 +11,14 @@ def render(filename):
     print("\\newcommand{\\lrAuthor}{David Peter}")
     print("\\input{../include/header.tex}")
     print("\\toggletrue{lrHideToc}")
+    print("\\toggletrue{lrHideTitle}")
     print("\\usepackage{longtable}")
     print("\\usepackage[left=2cm,right=2cm]{geometry}")
+    print("\\definecolor{command}{HTML}{0F61BF}")
 
     print("\\begin{document}")
     print("\\renewcommand*{\\arraystretch}{1.4}")
-    print("\\begin{longtable}[l]{llll}")
+    print("\\begin{longtable}[l]{p{6.5cm}p{2cm}l}")
 
     nrsection = 1
     with open(filename) as f:
@@ -27,8 +29,8 @@ def render(filename):
             if res:
                 section = res.group(1)
                 if nrsection > 1:
-                    print("\\multicolumn{4}{l}{} \\\\")
-                print("\\multicolumn{4}{l}{{\\large \\textsf{" + section + "}}\\vspace{2mm}} \\\\")
+                    print("\\multicolumn{3}{l}{} \\\\")
+                print("\\multicolumn{3}{l}{{\\large \\textsf{$\\triangleright$ " + section + "}}\\vspace{2mm}} \\\\")
                 nrsection += 1
             else:
                 res = re.match('\\\\(?:re)?newcommand\{\\\\([^\}]+)\}(\[[0-9]+\])?[^%]*(%%!? ?.*)?$', l)
@@ -43,7 +45,7 @@ def render(filename):
                         rargs = re.match("\[([0-9]+)\]", res.group(2))
                         if rargs:
                             nargs = int(rargs.group(1))
-                            if nargs < 3:
+                            if nargs <= 3:
                                 args = "\\verb+{..}+" * nargs
                             else:
                                 args = "\\verb+(" + str(nargs) + " arguments)+"
@@ -61,9 +63,9 @@ def render(filename):
                             doc = doc[2:]
 
                     print(
-                        "\\verb+\\{command}+{args} & "
+                        "{{\\color{{command}}\\verb+\\{command}+}}{args} & "
                         "{output} & "
-                        "{doc} & "
+                        "{doc} "
                         " \\\\"
                         .format(command=command, args=args, doc=doc, output=output)
                         )
