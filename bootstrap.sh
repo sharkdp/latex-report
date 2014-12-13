@@ -4,7 +4,8 @@
 log() {
     local level=${1?}
     shift
-    local code= line=">>> $*"
+    local code=''
+    local line=">>> $*"
     if [ -t 2 ]
     then
         case "$level" in
@@ -60,5 +61,5 @@ if [[ ! -e .git ]]; then
     git add .
     git commit -m "bootstrapped from latex-report"
 else
-    log INFO "Git repository already exists"
+    log INFO "A git repository exists alread"
 fi
