@@ -1,6 +1,8 @@
-% warn about LaTeX 'sins'
+%%% warn about LaTeX 'sins'
 \RequirePackage[l2tabu, orthodox]{nag}
 
+
+%%% KOMA class 'article'
 \documentclass[
      a4paper
     ,fontsize=12pt
@@ -9,29 +11,98 @@
     ,oneside
 ]{scrartcl}
 
-%%% latex-report settings
-\usepackage{etoolbox}
-\providetoggle{lrHideToc}
-\providetoggle{lrHideTitle}
-\providetoggle{lrSmallHeadings}
-\providetoggle{lrHeaderDate}
 
-% Run this code only after the user had the chance to change the toggles
+%%% Settings
+\usepackage{etoolbox}
+\providetoggle{lrHideToc}        % hide table of contents?
+\providetoggle{lrHideTitle}      % hide title heading?
+\providetoggle{lrSmallHeadings}  % use small font size for (sub)section headings?
+\providetoggle{lrHeaderDate}     % show the date in the header?
+
+
+%%% Fonts, encoding
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[defaultsans,scale=.93]{lato}
+\usepackage[scale=.91]{sourcecodepro}
+\usepackage[T1]{fontenc}
+
+
+%%% Math, symbols, units
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{bm}
+\usepackage{dsfont}    % for identity-matrix
+\usepackage{siunitx}
+
+% Bold vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+% This redefines a linebreak '\\' inside the 'align'-environment.
+% It adds \notag to all equations except the last (only one label
+% for multi-line equations).
+\makeatletter
+\def\Let@{\def\\{\notag\math@cr}}
+\makeatother
+
+
+%%% Graphics
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[
+     font=small
+    ,labelfont=bf
+]{caption}
+\captionsetup*[figure]{name=Fig.}
+\graphicspath{{fig/}}
+
+
+%%% Layout, typesetting, formatting
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[iso]{datetime}
+\usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
+
+% Remove TOC heading
+\makeatletter
+\renewcommand\tableofcontents{%
+    \@starttoc{toc}%
+}
+\makeatother
+
+%%% Colors
+\usepackage{xcolor}
+\definecolor{link}{rgb}{0.,0.4,1}
+\definecolor{header}{gray}{0.15}
+
+
+%%% Hyperref
+\usepackage[
+     pdfusetitle
+    ,colorlinks=true
+    ,citecolor=link
+    ,linkcolor=link
+    ,pdfborder={0 0 0}
+    ,unicode=true
+]{hyperref}
+
+
+%%% Run this code after the user had the chance to change the settings
 \AtEndPreamble{
-    % In case the user did not specify:
+    % Defaults, in case the user did not specify:
     \providecommand{\lrDate}{\today}
     \providecommand{\lrDirectory}{latex-report}
 
     % Load custom commands
     \input{\lrDirectory/include/commands}
 
-    % Small section headings?
+    % Use small section headings?
     \iftoggle{lrSmallHeadings}{
         \KOMAoptions{headings=small}
     }{}
 
-    %%% Header, footer
-    \usepackage[automark,headsepline=.6pt]{scrlayer-scrpage}
+    % Header and footer
     \addtokomafont{headsepline}{\color{header}}
     \setkomafont{pagehead}{\color{header}\normalfont\sffamily}
 
@@ -45,66 +116,6 @@
     \cfoot[\pagemark]{\pagemark}
 }
 
-%%% Fonts, encoding
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[defaultsans,scale=.93]{lato}
-\usepackage[scale=.91]{sourcecodepro}
-\usepackage[T1]{fontenc}
-
-%%% Math, symbols, units
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{upgreek}
-\usepackage{xspace}
-\usepackage{bm}
-\usepackage{dsfont}
-\usepackage{siunitx}
-
-% Bold vectors
-\renewcommand{\vec}[1]{\mathbf{#1}}
-
-% redefine \\ inside the 'align'-environment to add \notag to all equations except the last
-\makeatletter
-\def\Let@{\def\\{\notag\math@cr}}
-\makeatother
-
-%%% Graphics
-\usepackage{graphicx}
-\usepackage{subfig}
-\usepackage[
-     font=small
-    ,labelfont=bf
-]{caption}
-\captionsetup*[figure]{name=Fig.}
-\graphicspath{{fig/}}
-
-%%% Layout, typesetting, formatting
-\usepackage{booktabs}
-\usepackage{microtype}
-\usepackage[iso]{datetime}
-
-%%% Colors
-\usepackage{xcolor}
-\definecolor{link}{rgb}{0.,0.4,1}
-\definecolor{header}{gray}{0.15}
-
-%%% Remove TOC headings
-\makeatletter
-\renewcommand\tableofcontents{%
-    \@starttoc{toc}%
-}
-\makeatother
-
-%%% Hyperref
-\usepackage[
-     pdfusetitle
-    ,colorlinks=true
-    ,citecolor=link
-    ,linkcolor=link
-    ,pdfborder={0 0 0}
-    ,unicode=true
-]{hyperref}
 
 %%% Run this code after \begin{document}
 \AtBeginDocument{
@@ -112,13 +123,13 @@
     \author{\lrAuthor}
     \date{\lrDate}
 
-    %%% Title section
+    % Title section
     \nottoggle{lrHideTitle}{
         \noindent{\LARGE \textsf{\textbf{\lrTitle}}}\\
         \thispagestyle{empty}
     }{}
 
-    %%% TOC
+    % Table of contents
     \nottoggle{lrHideToc}{
         % Disable microtype protrusion for the TOC
         \microtypesetup{protrusion=false}
