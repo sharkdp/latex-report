@@ -27,7 +27,7 @@ latexmk -pvc
 
 Custom commands
 ---------------
-An overview of the predefined commands can be found in the [command cheatsheet](https://github.com/sharkdp/latex-report/raw/master/doc/cheatsheet.pdf) which is created automatically from `include/commands.tex`.
+An overview of the predefined commands can be found in the [command cheatsheet](https://github.com/sharkdp/latex-report/raw/master/tools/cheatsheet.pdf) which is created automatically from `include/commands.tex`.
 
 Updating
 --------
