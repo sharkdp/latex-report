@@ -34,4 +34,7 @@ Updating
 To update latex-report, call:
 ```sh
 git submodule update --remote --merge
+
+# if you want to commit the update to the newest version:
+git commit latex-report -m "updated latex-report to newest version"
 ```
