@@ -12,7 +12,7 @@ git clone https://github.com/sharkdp/latex-report.git
 ./latex-report/bootstrap.sh main
 ```
 
-Here, `main` is the name for the main file of your report (without ending). The bootstrap script creates the main LaTeX file as well as two directories `fig` for figures and `dist` for LaTeX output files. It also creates a new git repository for the report with an initial `.gitignore` file.
+Here, `main` is the name for the main file of your report (without ending). The bootstrap script creates the main LaTeX file as well as two directories `fig` for figures and `dist` for LaTeX output files. It also creates a new git repository for the report with an initial `.gitignore` file. The `latex-report` subfolder will be handled as a git submodule.
 
 Compilation
 -----------
@@ -33,5 +33,5 @@ Updating
 --------
 To update latex-report, call:
 ```sh
-git -C latex-report pull
+git submodule update
 ```

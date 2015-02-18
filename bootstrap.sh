@@ -58,6 +58,7 @@ fi
 if [[ ! -e .git ]]; then
     log INFO "Creating new git repository for this report"
     git init
+    git submodule add https://github.com/sharkdp/latex-report.git latex-report
     git add .
     git commit -m "bootstrapped from latex-report"
 else
