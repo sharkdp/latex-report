@@ -33,5 +33,5 @@ Updating
 --------
 To update latex-report, call:
 ```sh
-git submodule update
+git submodule update --remote --merge
 ```
