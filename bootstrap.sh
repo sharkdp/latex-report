@@ -62,5 +62,7 @@ if [[ ! -e .git ]]; then
     git add .
     git commit -m "bootstrapped from latex-report"
 else
-    log INFO "A git repository exists alread"
+    log INFO "This directory is already under version control."
+    log INFO "You might want to add latex-report as a submodule:"
+    log INFO "> git submodule add https://github.com/sharkdp/latex-report.git latex-report"
 fi
