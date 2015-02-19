@@ -103,11 +103,11 @@
 \newcommand{\atan}{\operatorname{atan}}
 
 %%% Figures
-\newcommand{\igopt}[2]{\includegraphics[#1]{#2}} %%! {options}{file name}
+\newcommand{\igopt}[2]{\includegraphics[#1]{#2}} %%! options, filename
 
-\newcommand{\ig}[2]{\igopt{width=#1\columnwidth}{#2}} %%! \ig{width in units of \textwidth}{file name}
+\newcommand{\ig}[2]{\igopt{width=#1\columnwidth}{#2}} %%! width in units of textwidth, filename
 
-\newcommand{\figopt}[4]{ %%! \figopt{width}{file name}{caption}{placement: h, t, ht, ..}
+\newcommand{\figopt}[4]{ %%! width, filename, caption, placement (h, t, ht)
     \begin{figure}[#4]
         \centering
         \ig{#1}{#2}
@@ -116,11 +116,11 @@
     \end{figure}
 }
 
-\newcommand{\fig}[3]{ %%! \fig{width}{file name}{caption}
+\newcommand{\fig}[3]{ %%! width, filename, caption
     \figopt{#1}{#2}{#3}{ht}
 }
 
-\newcommand{\doublefigopt}[8]{ %%! \doublefigopt{width 1}{file name 1}{caption 1}{width 2}{file name 2}{caption 2}{main caption}{placement}
+\newcommand{\doublefigopt}[8]{ %%! w1, f1, c1, w2, f2, c2, main caption, placement
     \begin{figure}[#8]
         \centering
         \subfloat[#3]{
@@ -136,6 +136,4 @@
     \end{figure}
 }
 
-\newcommand{\doublefig}[7]{\doublefigopt{#1}{#2}{#3}{#4}{#5}{#6}{#7}{ht}} %%! \doublefig{width 1}{file name 1}{caption 1}{width 2}{file name 2}{caption 2}{main caption}
-
-\newcommand{\figref}[1]{Fig.~\ref{fig:#1}} %%! reference to figure
+\newcommand{\doublefig}[7]{\doublefigopt{#1}{#2}{#3}{#4}{#5}{#6}{#7}{ht}} %%! w1, f1, c1, w2, f2, c2, main caption

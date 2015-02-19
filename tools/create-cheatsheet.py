@@ -3,6 +3,7 @@ import re
 
 
 STD_ARGS = ["x", "y", "z"]
+NEWCOMMAND_REGEX = '\\\\(?:re)?newcommand\{\\\\([^\}]+)\}(\[[0-9]+\])?[^%]*(%%!? ?.*)?$'
 
 
 def render(filename):
@@ -30,10 +31,11 @@ def render(filename):
                 section = res.group(1)
                 if nrsection > 1:
                     print("\\multicolumn{3}{l}{} \\\\")
-                print("\\multicolumn{3}{l}{{\\large \\textsf{$\\triangleright$ " + section + "}}\\vspace{2mm}} \\\\")
+                print("\\multicolumn{3}{l}{{\\large \\textsf{$\\triangleright$ " +
+                      section + "}}\\vspace{2mm}} \\\\")
                 nrsection += 1
             else:
-                res = re.match('\\\\(?:re)?newcommand\{\\\\([^\}]+)\}(\[[0-9]+\])?[^%]*(%%!? ?.*)?$', l)
+                res = re.match(NEWCOMMAND_REGEX, l)
                 if res:
                     command = res.group(1)
                     gargs = res.group(2)
@@ -56,18 +58,27 @@ def render(filename):
                         doc = ""
                     else:
                         if doc.startswith('%%!'):
-                            # doc = "\\verb+" + doc[3:] + "+"
-                            doc = ""
-                            output = ""
+                            args = "\\verb+(" + str(nargs) + " arguments)+"
+                            doc = doc[3:].strip()
+                            output = None
                         else:
                             doc = doc[2:]
 
-                    print(
-                        "{{\\color{{command}}\\verb+\\{command}+}}{args} & "
-                        "{output} & "
-                        "{doc} "
-                        " \\\\"
-                        .format(command=command, args=args, doc=doc, output=output)
+                    if output is None:
+                        print(
+                            "{{\\color{{command}}\\verb+\\{command}+}}{args} & "
+                            "\\multicolumn{{2}}{{l}}{{"
+                            "{doc}"
+                            "}} \\\\"
+                            .format(command=command, args=args, doc=doc)
+                        )
+                    else:
+                        print(
+                            "{{\\color{{command}}\\verb+\\{command}+}}{args} & "
+                            "{output} & "
+                            "{doc} "
+                            " \\\\"
+                            .format(command=command, args=args, doc=doc, output=output)
                         )
 
     print("\\end{longtable}")
