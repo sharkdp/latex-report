@@ -1,10 +1,24 @@
-%%% Size-adaptive math
+%%% Size-adaptive math: {\textbackslash}leftX \ldots {\textbackslash}rightX
 \newcommand{\bb}[1]{\left(#1\right)}                                        %% parantheses
 \newcommand{\bc}[1]{\left[#1\right]}                                        %% brackets
 \newcommand{\absv}[1]{\left|#1\right|}                                      %% absolute value
 \newcommand{\absvsq}[1]{\absv{#1}^2}                                        %% absolute value squared
 \newcommand{\comm}[2]{\left[#1, #2\right]}                                  %% commutator
 \newcommand{\meanv}[1]{\left\langle #1\right\rangle}                        %% mean value
+
+%%% Fixed-size math (for quickly changing from adaptive style)
+\newcommand{\Bb}[1]{\big(#1\big)}                                           %% big parantheses
+\newcommand{\BB}[1]{\Big(#1\Big)}                                           %% Big parantheses
+\newcommand{\Bc}[1]{\big[#1\big]}                                           %% big brackets
+\newcommand{\BC}[1]{\Big[#1\Big]}                                           %% Big brackets
+\newcommand{\Absv}[1]{\big|#1\big|}                                         %% big absolute value
+\newcommand{\ABSV}[1]{\Big|#1\Big|}                                         %% Big absolute value
+\newcommand{\Absvsq}[1]{\Absv{#1}^2}                                        %% big absolute value squared
+\newcommand{\ABSVSQ}[1]{\ABSV{#1}^2}                                        %% Big absolute value squared
+\newcommand{\Comm}[2]{\big[#1, #2\big]}                                     %% big commutator
+\newcommand{\COMM}[2]{\Big[#1, #2\Big]}                                     %% Big commutator
+\newcommand{\Meanv}[1]{\big\langle #1\big\rangle}                           %% big mean value
+\newcommand{\MEANV}[1]{\Big\langle #1\Big\rangle}                           %% Big mean value
 
 %%% Braket notation
 \newcommand{\bra}[1]{\ensuremath{\left\langle #1\right|}\xspace}             %% bra
